@@ -41,3 +41,28 @@ darkSelect.onchange=()=>{
     rightSection.classList.add("bg-dark","text-white")
     themeOutput.textContent="You selected Dark Mode!"
 }
+
+
+
+
+const buttons = document.getElementsByClassName("btn btn-success btn-sm")
+const skillsOutput = document.getElementById("skillsOutput")
+const skillsParent=buttons[0].parentNode
+
+Array.from(buttons).forEach(button =>{ 
+    button.addEventListener("click",()=>{
+        button.parentNode===skillsParent?skillsOutput.appendChild(button):skillsParent.appendChild(button)
+    })
+
+    button.addEventListener("mouseover",()=>{
+        if (button.parentNode===skillsOutput) {
+            button.classList.remove("btn-success")
+            button.classList.add("btn-danger")
+        }
+    })
+
+    button.addEventListener("mouseout",()=>{
+        button.classList.remove("btn-danger")
+        button.classList.add("btn-success")
+    })
+})
